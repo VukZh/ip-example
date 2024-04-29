@@ -1,0 +1,13 @@
+.button:hover, .buttonActive {
+    border: solid 1px #1976d2!important;
+}
+
+.checkbox {
+    width: calc(290px);
+    user-select: none;
+}
+
+.checkbox:hover {
+    background-color: lightcyan;
+}
+
