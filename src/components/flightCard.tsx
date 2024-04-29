@@ -6,10 +6,21 @@ import s7 from '../assets/s7.png'
 import tk from '../assets/tk.png'
 import ba from '../assets/ba.png'
 import style from './flightCard.module.css'
+import {Context} from "../state/ContextProvider.tsx";
+import {useContext} from "react";
+import {getDate, reformattedDate} from "../helpers/utils.ts";
 
 export const FlightCard = () => {
 
   const currentCarrierImg = s7
+
+  const {tickets} = useContext(Context);
+  tickets.map((t) => {
+    const day = getDate(t.arrival_date);
+    console.log("d", day)
+    const dd = reformattedDate(day);
+    console.log("dd", dd)
+  });
 
   return (
     <Card sx={{width: '700px'}}>
