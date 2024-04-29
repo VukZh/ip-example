@@ -5,7 +5,7 @@ import su from '../assets/su.png'
 import s7 from '../assets/s7.png'
 import tk from '../assets/tk.png'
 import ba from '../assets/ba.png'
-import style from "./flightCard.module.css"
+import style from './flightCard.module.css'
 
 export const FlightCard = () => {
 
