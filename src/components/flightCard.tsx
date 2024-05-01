@@ -30,7 +30,7 @@ export const FlightCard: FC<FlightCardType> = ({
     <Card sx={{width: '700px', height: '183px'}}>
       <Stack direction="row" spacing={0}>
         <Stack direction="column" style={{margin: '16px'}} spacing={2}>
-          <img src={carrier === 's7' ? currentCarrierImg : s7} alt="s7"/>
+          <img src={currentCarrierImg} alt="carrier"/>
           <Button variant="contained" color="warning" style={{fontSize: "large", cursor: "pointer"}}>
             Купить <br/>
             за {price}

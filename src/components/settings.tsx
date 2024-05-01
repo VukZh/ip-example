@@ -9,13 +9,17 @@ import {
   CheckBoxTwoTone
 } from '@mui/icons-material';
 import {useContext} from "react";
-import {Context} from "../state/ContextProvider.tsx";
+import {Context, IStopsCount} from "../state/ContextProvider.tsx";
+import {updateStopsSettings} from "../helpers/utils.ts";
 
 
 export const Settings = () => {
 
-  const {currentCurrency, setCurrentCurrency} = useContext(Context);
-  console.log("...", currentCurrency)
+  const {currentCurrency, setCurrentCurrency, stopsCount, setStopsCount} = useContext(Context);
+  const stopsHandler = (fieldName: keyof IStopsCount, value: boolean, only: boolean, stops: IStopsCount) => {
+    const newStops = updateStopsSettings(fieldName, value, only, stops);
+    setStopsCount(newStops)
+  }
 
   return (
     <Card sx={{width: '300px', maxHeight: '400px', position: 'sticky', top: '20px'}}>
@@ -43,31 +47,36 @@ export const Settings = () => {
           <FormControlLabel control={<Checkbox icon={<CheckBoxOutlineBlank color='primary'/>}
                                                checkedIcon={<CheckBoxTwoTone color='primary'/>} size="large" sx={{
             color: blue[800],
-          }}/>} label="Все" sx={{
+          }} checked={stopsCount.all} onChange={e => stopsHandler('all', e.target.checked, false, stopsCount)}/>}
+                            label="Все" sx={{
             color: "darkgray", fontSize: 16, fontWeight: 'bold',
           }} className={styles.checkbox}/>
           <FormControlLabel control={<Checkbox icon={<CheckBoxOutlineBlank color='primary'/>}
                                                checkedIcon={<CheckBoxTwoTone color='primary'/>} size="large" sx={{
             color: blue[800],
-          }}/>} label="Без пересадок" sx={{
+          }} checked={stopsCount.no} onChange={e => stopsHandler('no', e.target.checked, false, stopsCount)}/>}
+                            label="Без пересадок" sx={{
             color: "darkgray", fontSize: 16, fontWeight: 'bold',
           }} className={styles.checkbox}/>
           <FormControlLabel control={<Checkbox icon={<CheckBoxOutlineBlank color='primary'/>}
                                                checkedIcon={<CheckBoxTwoTone color='primary'/>} size="large" sx={{
             color: blue[800],
-          }}/>} label="1 пересадка" sx={{
+          }} checked={stopsCount.one} onChange={e => stopsHandler('one', e.target.checked, false, stopsCount)}/>}
+                            label="1 пересадка" sx={{
             color: "darkgray", fontSize: 16, fontWeight: 'bold',
           }} className={styles.checkbox}/>
           <FormControlLabel control={<Checkbox icon={<CheckBoxOutlineBlank color='primary'/>}
                                                checkedIcon={<CheckBoxTwoTone color='primary'/>} size="large" sx={{
             color: blue[800],
-          }}/>} label="2 пересадки" sx={{
+          }} checked={stopsCount.two} onChange={e => stopsHandler('two', e.target.checked, false, stopsCount)}/>}
+                            label="2 пересадки" sx={{
             color: "darkgray", fontSize: 16, fontWeight: 'bold',
           }} className={styles.checkbox}/>
           <FormControlLabel control={<Checkbox icon={<CheckBoxOutlineBlank color='primary'/>}
                                                checkedIcon={<CheckBoxTwoTone color='primary'/>} size="large" sx={{
             color: blue[800],
-          }}/>} label="3 пересадки" sx={{
+          }} checked={stopsCount.three} onChange={e => stopsHandler('three', e.target.checked, false, stopsCount)}/>}
+                            label="3 пересадки" sx={{
             color: "darkgray", fontSize: 16, fontWeight: 'bold',
           }} className={styles.checkbox}/>
 
