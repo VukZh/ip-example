@@ -1,6 +1,6 @@
 .vertLine {
     position: relative;
-    background-color: gray;
+    background-color: dimgray;
     border: 0;
     width: 128px;
     height: 1px;
@@ -16,7 +16,7 @@
 
 .place {
     padding-top: 5px;
-    width: 120px;
+    width: 130px;
     white-space: nowrap;
     overflow: hidden;
 }

@@ -1,5 +1,6 @@
 import React, {createContext} from "react";
 import {ticketsData} from "./constants.ts";
+import {CurrenciesType, TicketType, TransfersType} from "./types.ts";
 
 export interface IStopsCount {
   all: boolean,
@@ -20,8 +21,8 @@ interface IContext {
 }
 
 const initialState: IContext = {
-  currentCurrency: 'rub',
-  currentTransfer: 'all',
+  currentCurrency: "rub",
+  currentTransfer: "all",
   setCurrentCurrency: () => {
   },
   setCurrentTransfer: () => {
@@ -34,25 +35,33 @@ const initialState: IContext = {
     no: false,
     one: false,
     two: false,
-    three: false
-  }
-}
+    three: false,
+  },
+};
 export const Context = createContext<IContext>(initialState);
 export const ContextProvider = ({children}: React.PropsWithChildren<object>) => {
-  const [currentCurrency, setCurrentCurrency] = React.useState<CurrenciesType>('rub');
-  const [currentTransfer, setCurrentTransfer] = React.useState<TransfersType>('all');
+  const [currentCurrency, setCurrentCurrency] = React.useState<CurrenciesType>("rub");
+  const [currentTransfer, setCurrentTransfer] = React.useState<TransfersType>("all");
   const [stopsCount, setStopsCount] = React.useState<IStopsCount>({
     all: true,
     no: false,
     one: false,
     two: false,
-    three: false
+    three: false,
   });
   const [tickets] = React.useState(ticketsData);
 
   return (
-    <Context.Provider value={{currentCurrency, currentTransfer, setCurrentCurrency, setCurrentTransfer, tickets, stopsCount, setStopsCount}}>
+    <Context.Provider value={{
+      currentCurrency,
+      currentTransfer,
+      setCurrentCurrency,
+      setCurrentTransfer,
+      tickets,
+      stopsCount,
+      setStopsCount,
+    }}>
       {children}
     </Context.Provider>
   );
-}
+};

@@ -1,9 +1,10 @@
-import './App.css'
-import {Settings} from './components/settings'
+import "./App.css";
+import {Settings} from "./components/settings";
 import {Stack} from "@mui/material";
-import logo from './assets/logo.png';
-import './App.css';
+import logo from "./assets/logo.png";
+import "./App.css";
 import {Flights} from "./components/flights.tsx";
+
 function App() {
 
   return (
@@ -15,7 +16,7 @@ function App() {
       </Stack>
     </>
 
-  )
+  );
 }
 
-export default App
+export default App;

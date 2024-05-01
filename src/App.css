@@ -7,7 +7,7 @@ body {
     background-color: aliceblue;
     justify-content: center;
     align-items: flex-start;
-    overflow-x:hidden;
+    overflow-x: hidden;
 }
 
 .logo {

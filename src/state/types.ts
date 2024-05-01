@@ -1,8 +1,8 @@
-type CurrenciesType = 'rub' | 'usd' | 'eur'
+export type CurrenciesType = "rub" | "usd" | "eur"
 
-type TransfersType = "0" | "1" | "2" | "3" | "all"
+export type TransfersType = "0" | "1" | "2" | "3" | "all"
 
-type TicketType = {
+export type TicketType = {
   "origin": string,
   "origin_name": string,
   "destination": string,

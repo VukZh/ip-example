@@ -11,3 +11,10 @@
     background-color: aliceblue;
 }
 
+.popoverText {
+    background-color: aliceblue;
+    cursor: pointer;
+    color: #1976d2;
+    font-size: 14px;
+}
+
