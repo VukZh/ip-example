@@ -1,0 +1,22 @@
+.vertLine {
+    position: relative;
+    background-color: dimgray;
+    border: 0;
+    width: 128px;
+    height: 1px;
+    margin-right: 22px;
+}
+
+.airplane {
+    position: relative;
+    left: 130px;
+    top: -18px;
+    transform: rotate(90deg);
+}
+
+.place {
+    padding-top: 5px;
+    width: 130px;
+    white-space: nowrap;
+    overflow: hidden;
+}

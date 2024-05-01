@@ -1,0 +1,20 @@
+.button:hover, .buttonActive {
+    border: solid 1px #1976d2 !important;
+}
+
+.checkbox {
+    width: calc(290px);
+    user-select: none;
+}
+
+.checkbox:hover {
+    background-color: aliceblue;
+}
+
+.popoverText {
+    background-color: aliceblue;
+    cursor: pointer;
+    color: #1976d2;
+    font-size: 14px;
+}
+
