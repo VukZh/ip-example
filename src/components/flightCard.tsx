@@ -6,66 +6,70 @@ import s7 from '../assets/s7.png'
 import tk from '../assets/tk.png'
 import ba from '../assets/ba.png'
 import style from './flightCard.module.css'
-import {Context} from "../state/ContextProvider.tsx";
-import {useContext} from "react";
-import {getDate, reformattedDate} from "../helpers/utils.ts";
+import {FC} from "react";
 
-export const FlightCard = () => {
+type FlightCardType = Omit<TicketType, 'price' | 'stops'> & { price: string; stops: string }
 
-  const currentCarrierImg = s7
+export const FlightCard: FC<FlightCardType> = ({
+                                                 origin,
+                                                 origin_name,
+                                                 destination,
+                                                 destination_name,
+                                                 departure_date,
+                                                 departure_time,
+                                                 arrival_date,
+                                                 arrival_time,
+                                                 carrier,
+                                                 stops,
+                                                 price,
+                                               }) => {
 
-  const {tickets} = useContext(Context);
-  tickets.map((t) => {
-    const day = getDate(t.arrival_date);
-    console.log("d", day)
-    const dd = reformattedDate(day);
-    console.log("dd", dd)
-  });
+  const currentCarrierImg = carrier === 'S7' ? s7 : carrier === 'TK' ? tk : carrier === 'BA' ? ba : su;
 
   return (
-    <Card sx={{width: '700px'}}>
-      <Stack direction="row">
+    <Card sx={{width: '700px', height: '183px'}}>
+      <Stack direction="row" spacing={0}>
         <Stack direction="column" style={{margin: '16px'}} spacing={2}>
-          <img src={currentCarrierImg} alt="s7"/>
-          <Button variant="contained" color="warning" style={{fontSize: "large"}}>
+          <img src={carrier === 's7' ? currentCarrierImg : s7} alt="s7"/>
+          <Button variant="contained" color="warning" style={{fontSize: "large", cursor: "pointer"}}>
             Купить <br/>
-            за 12345Р
+            за {price}
           </Button>
         </Stack>
         <Divider orientation="vertical" flexItem/>
         <Stack direction="row" spacing={2} justifyContent="space-between" style={{width: '100%'}}>
           <Stack direction="column" style={{margin: '16px'}}>
             <Typography fontSize="36px" color="darkgray">
-              TIME
+              {departure_time}
             </Typography>
-            <Typography fontSize="24px" color="darkgray">
-              Place
+            <Typography fontSize="14px" color="darkgray" style={{fontWeight: 'bold'}} className={style.place}>
+              {origin}, {origin_name}
             </Typography>
-            <Typography fontSize="16px" color="gray">
-              Time
+            <Typography fontSize="14px" color="gray">
+              {departure_date}
             </Typography>
           </Stack>
           <div>
-            <Typography fontSize="16px" color="gray" style={{marginTop: '18px', textAlign: 'center'}}>
-              2 пересадки
+            <Typography fontSize="12px" color="gray" style={{marginTop: '18px', textAlign: 'center'}}>
+              {stops}
             </Typography>
             <hr className={style.vertLine}/>
-            <AirplanemodeActiveIcon fontSize="small" className={style.airplane}/>
+            <AirplanemodeActiveIcon fontSize="small" className={style.airplane} style={{color: "gray"}}/>
           </div>
           <Stack direction="column" style={{margin: '16px'}} alignItems="flex-end">
             <Typography fontSize="36px" color="darkgray">
-              TIME
+              {arrival_time}
             </Typography>
-            <Typography fontSize="24px" color="darkgray">
-              Place
+            <Typography fontSize="14px" color="darkgray" style={{fontWeight: 'bold', textAlign: 'right'}}
+                        className={style.place}>
+              {destination}, {destination_name}
             </Typography>
-            <Typography fontSize="16px" color="gray">
-              Time
+            <Typography fontSize="14px" color="gray">
+              {arrival_date}
             </Typography>
           </Stack>
         </Stack>
       </Stack>
-
     </Card>
   );
 }

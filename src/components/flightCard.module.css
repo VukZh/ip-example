@@ -2,14 +2,21 @@
     position: relative;
     background-color: gray;
     border: 0;
-    width: 150px;
+    width: 128px;
     height: 1px;
-    margin-right: 30px;
+    margin-right: 22px;
 }
 
 .airplane {
     position: relative;
-    left: 160px;
+    left: 130px;
     top: -18px;
     transform: rotate(90deg);
+}
+
+.place {
+    padding-top: 5px;
+    width: 120px;
+    white-space: nowrap;
+    overflow: hidden;
 }

@@ -12,6 +12,6 @@ type TicketType = {
   "arrival_date": string,
   "arrival_time": string,
   "carrier": string,
-  "stops": null,
+  "stops": number,
   "price": number,
 }

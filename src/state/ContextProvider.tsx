@@ -12,8 +12,10 @@ interface IContext {
 const initialState: IContext = {
   currentCurrency: 'rub',
   currentTransfer: 'all',
-  setCurrentCurrency: () => {},
-  setCurrentTransfer: () => {},
+  setCurrentCurrency: () => {
+  },
+  setCurrentTransfer: () => {
+  },
   tickets: [],
 }
 export const Context = createContext<IContext>(initialState);

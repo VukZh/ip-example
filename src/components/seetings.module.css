@@ -1,5 +1,5 @@
 .button:hover, .buttonActive {
-    border: solid 1px #1976d2!important;
+    border: solid 1px #1976d2 !important;
 }
 
 .checkbox {
@@ -8,6 +8,6 @@
 }
 
 .checkbox:hover {
-    background-color: lightcyan;
+    background-color: aliceblue;
 }
 
